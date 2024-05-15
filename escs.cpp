@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-static u8 pins[Defs::ESCs::NUM_ESCS] = { 2, 3, 4, 5, 6, 7, 8, 9 }; //TODO: edit to match real
+static u8 pins[Defs::ESCs::NUM_ESCS] = { 4, 5, 6, 7, 9, 10, 11, 12 };
 static Servo escs[Defs::ESCs::NUM_ESCS];
 //these track the last recieved PWM signal for each ESC
 static u16 oldPWM[Defs::ESCs::NUM_ESCS];
