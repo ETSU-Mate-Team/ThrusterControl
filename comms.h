@@ -9,20 +9,15 @@
 
 //encapsulates all signals we need to be listening for
 struct TxPacket {
-	u16 esc[Defs::NUM_ESCS];
-	u16 claw[Defs::NUM_CLAWS];
+	u16 esc[Defs::ESCs::NUM_ESCS];
+	u16 claw[Defs::Claws::NUM_CLAWS];
 };
 
 class Comms {
 public:
 
 	//reads the Serial input stream to populate a TxPacket with new signals
-	static void Read(TxPacket& packet) {
-		for(size_t i = 0; i < Defs::NUM_ESCS; i++)
-			packet.esc[i] = (Serial.available() > 0) ? Serial.read() : Defs::HALT;
-		for(size_t i = 0; i < Defs::NUM_CLAWS; i++)
-			packet.claw[i] = (Serial.available() > 0) ? Serial.read() : Defs::OPEN;
-	}
+	static void Read(TxPacket& packet);
 };
 
 #endif //COMMS_H

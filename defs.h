@@ -26,18 +26,22 @@ namespace Util {
 }
 
 namespace Defs {
-	static constexpr u8 NUM_CLAWS = 2;
-	static constexpr u16 OPEN = 1900;
-	static constexpr u16 CLOSED = 1100;
+	namespace Claws {
+		static constexpr u8 NUM_CLAWS = 2;
+		static constexpr u16 OPEN = 1900;
+		static constexpr u16 CLOSED = 1100;
+	}
 
-	static constexpr u8 NUM_ESCS = 8;
-	static constexpr u16 HALT = 1500;
-	static constexpr u16 FORWARD = 1900;
-	static constexpr u16 BACKWARD = 1100;
-	static constexpr u16 INIT_DELAY = 7000;
+	namespace ESCs {
+		static constexpr u8 NUM_ESCS = 8;
+		static constexpr u16 HALT = 1500;
+		static constexpr u16 FORWARD = 1900;
+		static constexpr u16 BACKWARD = 1100;
+		static constexpr u16 INIT_DELAY = 1;//7000;
+	}
 
 	constexpr u16 STARTUP_DELAY = 300;
-	constexpr u16 TICK_DELAY = 1;
+	constexpr u16 TICK_DELAY = 50;
 	constexpr u16 BAUD_RATE = 9600;
 
 	constexpr u16 ZP_DELAY = 150;

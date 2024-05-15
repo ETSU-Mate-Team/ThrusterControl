@@ -2,6 +2,7 @@
 //ETSU Underwater Robotics
 
 #include "power.h"
+#include <math.h>
 
 //a lookup table to estimate power consumption based on PWM
 const Power::PWMPair Power::PWM_AMP_LUT[Power::LUT_SIZE] = {
@@ -18,7 +19,7 @@ const Power::PWMPair Power::PWM_AMP_LUT[Power::LUT_SIZE] = {
 
 //get an estimate of the amount of amps being drawn by the specified ESC
 float Power::getCurrent(u16 pwm) {
-	if ((pwm < Defs::BACKWARD) || (pwm > Defs::FORWARD))
+	if ((pwm < Defs::ESCs::BACKWARD) || (pwm > Defs::ESCs::FORWARD))
 		return NAN;
 	PWMPair lowerBound = { 0, NAN };
 	PWMPair upperBound = { 65535, NAN };
@@ -47,9 +48,9 @@ float Power::getTotalCurrent() {
 	
 	float totalCurrent = 0.0f;
 	
-	for(size_t i = 0; i < Defs::NUM_ESCS; i++)
+	for(size_t i = 0; i < Defs::ESCs::NUM_ESCS; i++)
 		totalCurrent += Power::getCurrent(i);
-	for(size_t i = 0; i < Defs::NUM_CLAWS; i++)
+	for(size_t i = 0; i < Defs::Claws::NUM_CLAWS; i++)
 		totalCurrent += 0.0f; //TODO: figure up the current draw of a claw servo
 	
 	return totalCurrent;
