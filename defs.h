@@ -37,7 +37,7 @@ namespace Defs {
 		static constexpr u16 HALT = 1500;
 		static constexpr u16 FORWARD = 1900;
 		static constexpr u16 BACKWARD = 1100;
-		static constexpr u16 INIT_DELAY = 1;//7000;
+		static constexpr u16 INIT_DELAY = 7000;
 	}
 
 	constexpr u16 STARTUP_DELAY = 300;

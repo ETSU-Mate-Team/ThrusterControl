@@ -40,7 +40,7 @@ void ESCs::Update(const TxPacket& packet) {
 
 		//TODO: make a timer for each ESC so that we can time the delay for each one without halting the whole device
 		//NOTE: or alternatively, make zeropass a concern of the master device, and factor it into the scheduling of transmission
-		delay(Defs::ZP_DELAY);
+		//delay(Defs::ZP_DELAY);
 
 		escs[i].writeMicroseconds(newPWM);
 		oldPWM[i] = newPWM;
